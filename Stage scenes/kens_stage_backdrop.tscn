@@ -1,0 +1,890 @@
+[gd_scene load_steps=88 format=3 uid="uid://diasjjmdti48t"]
+
+[ext_resource type="Texture2D" uid="uid://d22ei2oxr4uj5" path="res://Stage items/Kens Stage_backdrop.png" id="1_7lt2c"]
+[ext_resource type="Script" path="res://Stage scripts/kens_stage_backdrop.gd" id="2_rbokv"]
+[ext_resource type="PackedScene" uid="uid://bowp6rpidog13" path="res://Stage items/M1/kens_stage_m_1.tscn" id="3_4f8m6"]
+[ext_resource type="Texture2D" uid="uid://cmag1yq16lnn1" path="res://Stage items/W1/Kens Stage_W1_anim.png" id="3_mfye6"]
+[ext_resource type="Texture2D" uid="uid://5uwnk3dov6q4" path="res://Stage items/GM/Kens Stage_Gray_anim.png" id="5_7ey2n"]
+[ext_resource type="Texture2D" uid="uid://b5i24r6jwhp82" path="res://Stage items/GG/Kens Stage_GG_anim.png" id="6_bt8dk"]
+[ext_resource type="Texture2D" uid="uid://b342ik22en21l" path="res://Stage items/BG/Kens Stage_BG_anim.png" id="7_voejv"]
+[ext_resource type="Texture2D" uid="uid://btxq7fgci85la" path="res://Stage items/Gold/Kens Stage_Gold_anim.png" id="8_0owsx"]
+[ext_resource type="Texture2D" uid="uid://cwxwemh2ain2w" path="res://Stage items/PG/Kens Stage_PG_anim.png" id="9_7kksx"]
+
+[sub_resource type="Animation" id="Animation_rx36v"]
+resource_name = "Cheer1"
+length = 0.3
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0, 1, 2]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [Vector2(-53.2359, 44.4882), Vector2(-52.9245, 43.6891), Vector2(-52.9245, 42.6235)]
+}
+
+[sub_resource type="Animation" id="Animation_u24o1"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-52.9245, 43.6891)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../KensStageM1:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../KensStageM1:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-113.943, 43.6891)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_cdkqi"]
+_data = {
+"Cheer1": SubResource("Animation_rx36v"),
+"RESET": SubResource("Animation_u24o1")
+}
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_rftry"]
+animation = &"Cheer1"
+
+[sub_resource type="AnimationNodeTimeScale" id="AnimationNodeTimeScale_wmhc0"]
+
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_2d8y2"]
+graph_offset = Vector2(-283.807, -78.4203)
+nodes/Animation/node = SubResource("AnimationNodeAnimation_rftry")
+nodes/Animation/position = Vector2(20, 80)
+nodes/TimeScale/node = SubResource("AnimationNodeTimeScale_wmhc0")
+nodes/TimeScale/position = Vector2(240, 60)
+nodes/output/position = Vector2(520, 120)
+node_connections = [&"TimeScale", 0, &"Animation", &"output", 0, &"TimeScale"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_2lyp4"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_cjrji"]
+states/Cheer/node = SubResource("AnimationNodeBlendTree_2d8y2")
+states/Cheer/position = Vector2(484, 57)
+transitions = ["Start", "Cheer", SubResource("AnimationNodeStateMachineTransition_2lyp4")]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pcwaq"]
+atlas = ExtResource("3_mfye6")
+region = Rect2(0, 133, 45, 65)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ts0j5"]
+atlas = ExtResource("3_mfye6")
+region = Rect2(0, 68, 45, 65)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6afeg"]
+atlas = ExtResource("3_mfye6")
+region = Rect2(0, 3, 45, 65)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_28res"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pcwaq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ts0j5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6afeg")
+}],
+"loop": true,
+"name": &"cheer",
+"speed": 5.0
+}]
+
+[sub_resource type="Animation" id="Animation_hwxpn"]
+resource_name = "Cheer1"
+length = 0.25
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0, 1, 2]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [Vector2(-112.076, 44.7547), Vector2(-112.076, 42.6235), Vector2(-112.076, 40.4923)]
+}
+
+[sub_resource type="Animation" id="Animation_aytkb"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-112.076, 42.6235)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_majtb"]
+_data = {
+"Cheer1": SubResource("Animation_hwxpn"),
+"RESET": SubResource("Animation_aytkb")
+}
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_7pj1j"]
+animation = &"Cheer1"
+
+[sub_resource type="AnimationNodeTimeScale" id="AnimationNodeTimeScale_ujjiw"]
+
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_3jfy7"]
+nodes/Animation/node = SubResource("AnimationNodeAnimation_7pj1j")
+nodes/Animation/position = Vector2(120, 100)
+nodes/TimeScale/node = SubResource("AnimationNodeTimeScale_ujjiw")
+nodes/TimeScale/position = Vector2(340, 120)
+nodes/output/position = Vector2(560, 100)
+node_connections = [&"TimeScale", 0, &"Animation", &"output", 0, &"TimeScale"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ynne7"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_86bs2"]
+states/Cheer1/node = SubResource("AnimationNodeBlendTree_3jfy7")
+states/Cheer1/position = Vector2(394, 68)
+transitions = ["Start", "Cheer1", SubResource("AnimationNodeStateMachineTransition_ynne7")]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r5ojb"]
+atlas = ExtResource("5_7ey2n")
+region = Rect2(0, 66, 25, 66)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qg2ba"]
+atlas = ExtResource("5_7ey2n")
+region = Rect2(0, 0, 25, 66)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_r15u6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r5ojb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qg2ba")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="Animation" id="Animation_h6o63"]
+resource_name = "Look"
+length = 0.15
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [Vector2(-84.0566, 47.4186), Vector2(-84.0566, 45.2874)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+
+[sub_resource type="Animation" id="Animation_6x4pk"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-84.0566, 47.4186)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_v8gn4"]
+_data = {
+"Look": SubResource("Animation_h6o63"),
+"RESET": SubResource("Animation_6x4pk")
+}
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_s1crj"]
+animation = &"Look"
+
+[sub_resource type="AnimationNodeTimeScale" id="AnimationNodeTimeScale_hpabw"]
+
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_jxagj"]
+nodes/Animation/node = SubResource("AnimationNodeAnimation_s1crj")
+nodes/Animation/position = Vector2(60, 100)
+nodes/TimeScale/node = SubResource("AnimationNodeTimeScale_hpabw")
+nodes/TimeScale/position = Vector2(220, 80)
+nodes/output/position = Vector2(440, 120)
+node_connections = [&"TimeScale", 0, &"Animation", &"output", 0, &"TimeScale"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_th0nl"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_8dadq"]
+states/Look/node = SubResource("AnimationNodeBlendTree_jxagj")
+states/Look/position = Vector2(453, 92)
+transitions = ["Start", "Look", SubResource("AnimationNodeStateMachineTransition_th0nl")]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jiqpw"]
+atlas = ExtResource("6_bt8dk")
+region = Rect2(0, 0, 41, 63)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7bri6"]
+atlas = ExtResource("6_bt8dk")
+region = Rect2(0, 63, 41, 63)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_82wix"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jiqpw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7bri6")
+}],
+"loop": true,
+"name": &"snap",
+"speed": 5.0
+}]
+
+[sub_resource type="Animation" id="Animation_i33jb"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-19.3019, 43.6891)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+
+[sub_resource type="Animation" id="Animation_uqg3g"]
+resource_name = "snap"
+length = 0.15
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [Vector2(-19.3019, 44.7547), Vector2(-19.3019, 43.6891)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_v5vem"]
+_data = {
+"RESET": SubResource("Animation_i33jb"),
+"snap": SubResource("Animation_uqg3g")
+}
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_06mjo"]
+animation = &"snap"
+
+[sub_resource type="AnimationNodeTimeScale" id="AnimationNodeTimeScale_tvvv1"]
+
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_cuuac"]
+nodes/Animation/node = SubResource("AnimationNodeAnimation_06mjo")
+nodes/Animation/position = Vector2(80, 80)
+nodes/TimeScale/node = SubResource("AnimationNodeTimeScale_tvvv1")
+nodes/TimeScale/position = Vector2(320, 80)
+nodes/output/position = Vector2(600, 100)
+node_connections = [&"TimeScale", 0, &"Animation", &"output", 0, &"TimeScale"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_0xkmt"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_w78nr"]
+states/Snap/node = SubResource("AnimationNodeBlendTree_cuuac")
+states/Snap/position = Vector2(492, 61)
+states/Start/position = Vector2(303, 113)
+transitions = ["Start", "Snap", SubResource("AnimationNodeStateMachineTransition_0xkmt")]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bqwi7"]
+atlas = ExtResource("7_voejv")
+region = Rect2(0, 130, 58, 65)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aapob"]
+atlas = ExtResource("7_voejv")
+region = Rect2(0, 65, 58, 65)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dir6y"]
+atlas = ExtResource("7_voejv")
+region = Rect2(0, 0, 58, 65)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_sqfjw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bqwi7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aapob")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dir6y")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="Animation" id="Animation_14uok"]
+resource_name = "Cheer3"
+length = 0.3
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("KensStageBg:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [Vector2(51.6793, 36.23), Vector2(51.6793, 35.1644), Vector2(51.6793, 34.0988)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("KensStageBg:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0, 1, 2]
+}
+
+[sub_resource type="Animation" id="Animation_bl38f"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("KensStageBg:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(51.6793, 35.1644)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("KensStageBg:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4orvf"]
+_data = {
+"Cheer3": SubResource("Animation_14uok"),
+"RESET": SubResource("Animation_bl38f")
+}
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_maa4y"]
+animation = &"Cheer3"
+
+[sub_resource type="AnimationNodeTimeScale" id="AnimationNodeTimeScale_cjbk1"]
+
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_rfut7"]
+nodes/Animation/node = SubResource("AnimationNodeAnimation_maa4y")
+nodes/Animation/position = Vector2(120, 140)
+nodes/TimeScale/node = SubResource("AnimationNodeTimeScale_cjbk1")
+nodes/TimeScale/position = Vector2(340, 140)
+nodes/output/position = Vector2(620, 160)
+node_connections = [&"TimeScale", 0, &"Animation", &"output", 0, &"TimeScale"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_wr5kx"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_d50uo"]
+states/Cheer3/node = SubResource("AnimationNodeBlendTree_rfut7")
+states/Cheer3/position = Vector2(500, 88)
+states/Start/position = Vector2(266, 124)
+transitions = ["Start", "Cheer3", SubResource("AnimationNodeStateMachineTransition_wr5kx")]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jhpam"]
+atlas = ExtResource("8_0owsx")
+region = Rect2(0, 0, 50, 49)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_do62o"]
+atlas = ExtResource("8_0owsx")
+region = Rect2(0, 49, 50, 49)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eggdp"]
+atlas = ExtResource("8_0owsx")
+region = Rect2(0, 98, 50, 49)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7kpgy"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jhpam")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_do62o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eggdp")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="Animation" id="Animation_hkkyd"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("KensStageGold:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-152.547, -44.7547)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("KensStageGold:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+
+[sub_resource type="Animation" id="Animation_6b8cc"]
+resource_name = "Wave"
+length = 0.25
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("KensStageGold:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [Vector2(-153.17, -45.8202), Vector2(-153.17, -44.7547), Vector2(-153.17, -43.6891)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("KensStageGold:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0, 1, 2]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_o6bob"]
+_data = {
+"RESET": SubResource("Animation_hkkyd"),
+"Wave": SubResource("Animation_6b8cc")
+}
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_86xj1"]
+animation = &"Wave"
+
+[sub_resource type="AnimationNodeTimeScale" id="AnimationNodeTimeScale_70qxw"]
+
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_rh4ug"]
+graph_offset = Vector2(-105.402, -38.8182)
+nodes/Animation/node = SubResource("AnimationNodeAnimation_86xj1")
+nodes/Animation/position = Vector2(40, 60)
+nodes/TimeScale/node = SubResource("AnimationNodeTimeScale_70qxw")
+nodes/TimeScale/position = Vector2(300, 60)
+nodes/output/position = Vector2(560, 100)
+node_connections = [&"TimeScale", 0, &"Animation", &"output", 0, &"TimeScale"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_mnfnp"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_x1hnp"]
+states/End/position = Vector2(609, 79)
+states/Wave2/node = SubResource("AnimationNodeBlendTree_rh4ug")
+states/Wave2/position = Vector2(381, 105)
+transitions = ["Start", "Wave2", SubResource("AnimationNodeStateMachineTransition_mnfnp")]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hj8ej"]
+atlas = ExtResource("9_7kksx")
+region = Rect2(0, 0, 71, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n076x"]
+atlas = ExtResource("9_7kksx")
+region = Rect2(0, 48, 71, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qsdui"]
+atlas = ExtResource("9_7kksx")
+region = Rect2(0, 96, 71, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ojlbc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hj8ej")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n076x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qsdui")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="Animation" id="Animation_xvle4"]
+resource_name = "Cheer4"
+length = 0.3
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("KensStagePg:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0, 1, 2]
+}
+
+[sub_resource type="Animation" id="Animation_bs5po"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("KensStagePg:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_dei1e"]
+_data = {
+"Cheer4": SubResource("Animation_xvle4"),
+"RESET": SubResource("Animation_bs5po")
+}
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_or7w3"]
+animation = &"Cheer4"
+
+[sub_resource type="AnimationNodeTimeScale" id="AnimationNodeTimeScale_uuw0c"]
+
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_3foel"]
+graph_offset = Vector2(122.304, 53.953)
+nodes/Animation/node = SubResource("AnimationNodeAnimation_or7w3")
+nodes/Animation/position = Vector2(180, 80)
+nodes/TimeScale/node = SubResource("AnimationNodeTimeScale_uuw0c")
+nodes/TimeScale/position = Vector2(380, 80)
+nodes/output/position = Vector2(740, 160)
+node_connections = [&"TimeScale", 0, &"Animation", &"output", 0, &"TimeScale"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_61hge"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_rrg4y"]
+states/Cheer4/node = SubResource("AnimationNodeBlendTree_3foel")
+states/Cheer4/position = Vector2(456, 71)
+transitions = ["Start", "Cheer4", SubResource("AnimationNodeStateMachineTransition_61hge")]
+
+[node name="KensStageBackdrop" type="Sprite2D"]
+position = Vector2(419, 374)
+scale = Vector2(1.60606, 1.8769)
+texture = ExtResource("1_7lt2c")
+script = ExtResource("2_rbokv")
+
+[node name="KensStageM1" parent="." instance=ExtResource("3_4f8m6")]
+position = Vector2(-112.076, 42.6235)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../KensStageW1")
+libraries = {
+"": SubResource("AnimationLibrary_cdkqi")
+}
+autoplay = "Cheer1"
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+root_node = NodePath("../KensStageW1")
+tree_root = SubResource("AnimationNodeStateMachine_cjrji")
+anim_player = NodePath("../AnimationPlayer")
+parameters/Cheer/TimeScale/scale = 0.7
+
+[node name="KensStageW1" type="AnimatedSprite2D" parent="."]
+position = Vector2(-52.9245, 43.6891)
+sprite_frames = SubResource("SpriteFrames_28res")
+animation = &"cheer"
+frame = 1
+
+[node name="AnimationPlayer2" type="AnimationPlayer" parent="."]
+root_node = NodePath("../KensStageM1")
+libraries = {
+"": SubResource("AnimationLibrary_majtb")
+}
+autoplay = "Cheer1"
+
+[node name="AnimationTree2" type="AnimationTree" parent="."]
+active = false
+root_node = NodePath("../KensStageM1")
+tree_root = SubResource("AnimationNodeStateMachine_86bs2")
+anim_player = NodePath("../AnimationPlayer2")
+parameters/Cheer1/TimeScale/scale = 0.4
+
+[node name="KensStageGray" type="AnimatedSprite2D" parent="."]
+position = Vector2(-84.0566, 47.4186)
+sprite_frames = SubResource("SpriteFrames_r15u6")
+
+[node name="AnimationPlayer3" type="AnimationPlayer" parent="."]
+root_node = NodePath("../KensStageGray")
+libraries = {
+"": SubResource("AnimationLibrary_v8gn4")
+}
+autoplay = "Look"
+
+[node name="AnimationTree3" type="AnimationTree" parent="."]
+active = false
+root_node = NodePath("../KensStageGray")
+tree_root = SubResource("AnimationNodeStateMachine_8dadq")
+anim_player = NodePath("../AnimationPlayer3")
+parameters/Look/TimeScale/scale = 0.2
+
+[node name="KensStageGg" type="AnimatedSprite2D" parent="."]
+position = Vector2(-19.3019, 43.6891)
+sprite_frames = SubResource("SpriteFrames_82wix")
+animation = &"snap"
+frame = 1
+
+[node name="AnimationPlayer4" type="AnimationPlayer" parent="."]
+root_node = NodePath("../KensStageGg")
+libraries = {
+"": SubResource("AnimationLibrary_v5vem")
+}
+autoplay = "RESET"
+
+[node name="AnimationTree4" type="AnimationTree" parent="."]
+active = false
+root_node = NodePath("../KensStageGg")
+tree_root = SubResource("AnimationNodeStateMachine_w78nr")
+anim_player = NodePath("../AnimationPlayer4")
+parameters/Snap/TimeScale/scale = 0.2
+
+[node name="KensStageBg" type="AnimatedSprite2D" parent="."]
+position = Vector2(51.6793, 35.1644)
+sprite_frames = SubResource("SpriteFrames_sqfjw")
+frame = 1
+
+[node name="AnimationPlayer5" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_4orvf")
+}
+autoplay = "Cheer3"
+
+[node name="AnimationTree5" type="AnimationTree" parent="."]
+active = false
+tree_root = SubResource("AnimationNodeStateMachine_d50uo")
+anim_player = NodePath("../AnimationPlayer5")
+parameters/Cheer3/TimeScale/scale = 0.7
+
+[node name="KensStageGold" type="AnimatedSprite2D" parent="."]
+position = Vector2(-152.547, -44.7547)
+sprite_frames = SubResource("SpriteFrames_7kpgy")
+frame = 1
+
+[node name="AnimationPlayer6" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_o6bob")
+}
+autoplay = "Wave"
+
+[node name="AnimationTree6" type="AnimationTree" parent="."]
+active = false
+tree_root = SubResource("AnimationNodeStateMachine_x1hnp")
+anim_player = NodePath("../AnimationPlayer6")
+parameters/Wave2/TimeScale/scale = 0.6
+
+[node name="KensStagePg" type="AnimatedSprite2D" parent="."]
+position = Vector2(-103.981, -46.353)
+sprite_frames = SubResource("SpriteFrames_ojlbc")
+frame = 1
+
+[node name="AnimationPlayer7" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_dei1e")
+}
+autoplay = "Cheer4"
+
+[node name="AnimationTree7" type="AnimationTree" parent="."]
+active = false
+tree_root = SubResource("AnimationNodeStateMachine_rrg4y")
+anim_player = NodePath("../AnimationPlayer7")
+parameters/Cheer4/TimeScale/scale = 0.7

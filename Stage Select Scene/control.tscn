@@ -1,0 +1,110 @@
+[gd_scene load_steps=18 format=3 uid="uid://x344itss0di1"]
+
+[ext_resource type="Script" path="res://Stage Select Scene/client.gd" id="1_6iyom"]
+[ext_resource type="Texture2D" uid="uid://dabxy0nnk611p" path="res://Select Images/Ryu_Character Select (2).png" id="1_ix4gm"]
+[ext_resource type="Script" path="res://p_1_cursor.gd" id="2_rufys"]
+[ext_resource type="Texture2D" uid="uid://ydc3dgac4t8e" path="res://Select Images/Blanka_Character Select (2).png" id="2_uwmli"]
+[ext_resource type="Texture2D" uid="uid://8tx45r6bmawo" path="res://Select Images/Sagat_Character Select (2).png" id="3_dp6ub"]
+[ext_resource type="Texture2D" uid="uid://crjhh3nikqisw" path="res://Select Images/Guile_Character Select (2).png" id="4_6bbpn"]
+[ext_resource type="Texture2D" uid="uid://846wt5slpj2c" path="res://Select Images/P2_Cursor.png" id="4_cjynq"]
+[ext_resource type="Texture2D" uid="uid://6gsvtld0pg7w" path="res://Select Images/Zangief_Character Select (2).png" id="5_145ck"]
+[ext_resource type="Texture2D" uid="uid://v8esov75fshh" path="res://Select Images/Dhalsim_Character Select (2).png" id="6_fk5lf"]
+[ext_resource type="Texture2D" uid="uid://bm10uao74od72" path="res://Select Images/Ken_Character Select (2).png" id="7_o6302"]
+[ext_resource type="Texture2D" uid="uid://dwdw3xvkyeooa" path="res://Select Images/Dee Jay_Character Select (2).png" id="8_tixqx"]
+[ext_resource type="Texture2D" uid="uid://b510fxwgrxi8s" path="res://Select Images/Cammy White_Character Select (2).png" id="9_udxp7"]
+[ext_resource type="Texture2D" uid="uid://bx6gra0fwv3jt" path="res://Select Images/P1_Cursor.png" id="10_28lc6"]
+[ext_resource type="Texture2D" uid="uid://g40odybpfil8" path="res://Select Images/Vega_Character Select.png" id="13_7k28m"]
+[ext_resource type="Texture2D" uid="uid://b7sthvg8vb8ko" path="res://Select Images/Background_Character Select.png" id="14_7xwp4"]
+[ext_resource type="Texture2D" uid="uid://yhcec3bnqya6" path="res://Select Images/P1_Character Select.png" id="16_n2nxc"]
+[ext_resource type="Texture2D" uid="uid://dsgs0nrb0y8l2" path="res://Select Images/P2_Character Select.png" id="17_xwj0v"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 337.0
+offset_bottom = 149.0
+script = ExtResource("1_6iyom")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(148, 72)
+zoom = Vector2(4, 4)
+
+[node name="P1Cursor" type="Sprite2D" parent="."]
+z_index = 1
+position = Vector2(98, 46)
+texture = ExtResource("10_28lc6")
+script = ExtResource("2_rufys")
+player1text = ExtResource("10_28lc6")
+player2text = ExtResource("4_cjynq")
+portraitOffset = Vector2(21, 32)
+
+[node name="GridContainer" type="GridContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.267
+anchor_top = 0.228
+anchor_right = 0.632
+anchor_bottom = 0.664
+offset_left = 0.0209961
+offset_top = 0.0279961
+offset_right = -0.0990295
+offset_bottom = 0.0639954
+theme_override_constants/h_separation = 0
+theme_override_constants/v_separation = 0
+columns = 5
+
+[node name="Ryu" type="TextureRect" parent="GridContainer" groups=["Characters"]]
+layout_mode = 2
+texture = ExtResource("1_ix4gm")
+
+[node name="Blanka" type="TextureRect" parent="GridContainer" groups=["Characters"]]
+layout_mode = 2
+texture = ExtResource("2_uwmli")
+
+[node name="Guile" type="TextureRect" parent="GridContainer" groups=["Characters"]]
+layout_mode = 2
+texture = ExtResource("4_6bbpn")
+
+[node name="Ken" type="TextureRect" parent="GridContainer" groups=["Characters"]]
+layout_mode = 2
+texture = ExtResource("7_o6302")
+
+[node name="Zangief" type="TextureRect" parent="GridContainer" groups=["Characters"]]
+layout_mode = 2
+texture = ExtResource("5_145ck")
+
+[node name="Dhalsim" type="TextureRect" parent="GridContainer" groups=["Characters"]]
+layout_mode = 2
+texture = ExtResource("6_fk5lf")
+
+[node name="Sagat" type="TextureRect" parent="GridContainer" groups=["Characters"]]
+layout_mode = 2
+texture = ExtResource("3_dp6ub")
+
+[node name="Dee Jay" type="TextureRect" parent="GridContainer" groups=["Characters"]]
+layout_mode = 2
+texture = ExtResource("8_tixqx")
+
+[node name="Cammy" type="TextureRect" parent="GridContainer" groups=["Characters"]]
+layout_mode = 2
+texture = ExtResource("9_udxp7")
+
+[node name="Vega" type="TextureRect" parent="GridContainer" groups=["Characters"]]
+layout_mode = 2
+texture = ExtResource("13_7k28m")
+
+[node name="BackgroundCharacterSelect" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(146.5, 71.0518)
+scale = Vector2(1.48047, 0.896373)
+texture = ExtResource("14_7xwp4")
+
+[node name="P1CharacterSelect" type="Sprite2D" parent="."]
+position = Vector2(72, 72)
+scale = Vector2(1.46667, 1.4)
+texture = ExtResource("16_n2nxc")
+
+[node name="P2CharacterSelect" type="Sprite2D" parent="."]
+position = Vector2(217, 71)
+scale = Vector2(1.5, 1.4)
+texture = ExtResource("17_xwj0v")

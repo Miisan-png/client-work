@@ -1,0 +1,139 @@
+[gd_scene load_steps=16 format=3 uid="uid://wfdtlylw5b1i"]
+
+[ext_resource type="Texture2D" uid="uid://dhgksymkx1fbl" path="res://Stage items/Kens Stage_background.png" id="1_413ro"]
+[ext_resource type="Script" path="res://Stage scripts/kens_stage_background.gd" id="2_bt4hy"]
+[ext_resource type="Texture2D" uid="uid://dm3l1nr5yxmq5" path="res://Stage items/Flag/Flag_anim.png" id="2_ewlrl"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_odx4t"]
+atlas = ExtResource("2_ewlrl")
+region = Rect2(0, 104, 50, 52)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_muyap"]
+atlas = ExtResource("2_ewlrl")
+region = Rect2(0, 52, 50, 52)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c55d7"]
+atlas = ExtResource("2_ewlrl")
+region = Rect2(0, 0, 50, 52)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gc3l6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_odx4t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_muyap")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c55d7")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="Animation" id="Animation_sg3bx"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Flag:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(199.165, -61.1061)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Flag:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+
+[sub_resource type="Animation" id="Animation_rc22h"]
+resource_name = "Wave"
+length = 0.25
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Flag:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0, 1, 2]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Flag:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [Vector2(199.165, -57.4367), Vector2(199.165, -61.5138), Vector2(199.165, -65.591)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_v4xk0"]
+_data = {
+"RESET": SubResource("Animation_sg3bx"),
+"Wave": SubResource("Animation_rc22h")
+}
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_1c0um"]
+animation = &"Wave"
+
+[sub_resource type="AnimationNodeTimeScale" id="AnimationNodeTimeScale_igfx8"]
+
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_oh4p4"]
+nodes/Animation/node = SubResource("AnimationNodeAnimation_1c0um")
+nodes/Animation/position = Vector2(242.242, 167.706)
+nodes/TimeScale/node = SubResource("AnimationNodeTimeScale_igfx8")
+nodes/TimeScale/position = Vector2(500, 120)
+nodes/output/position = Vector2(720, 160)
+node_connections = [&"TimeScale", 0, &"Animation", &"output", 0, &"TimeScale"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_4lati"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_f0gs7"]
+states/Wave/node = SubResource("AnimationNodeBlendTree_oh4p4")
+states/Wave/position = Vector2(321, 58)
+transitions = ["Start", "Wave", SubResource("AnimationNodeStateMachineTransition_4lati")]
+
+[node name="KensStageBackground" type="Sprite2D"]
+position = Vector2(571, 336.875)
+scale = Vector2(1.50127, 2.4527)
+texture = ExtResource("1_413ro")
+script = ExtResource("2_bt4hy")
+
+[node name="Flag" type="AnimatedSprite2D" parent="."]
+position = Vector2(199.165, -61.1061)
+sprite_frames = SubResource("SpriteFrames_gc3l6")
+frame = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+deterministic = true
+libraries = {
+"": SubResource("AnimationLibrary_v4xk0")
+}
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+tree_root = SubResource("AnimationNodeStateMachine_f0gs7")
+anim_player = NodePath("../AnimationPlayer")
+parameters/Wave/TimeScale/scale = 0.7

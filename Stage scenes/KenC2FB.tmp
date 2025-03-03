@@ -1,0 +1,65 @@
+[gd_scene load_steps=8 format=3 uid="uid://jr6txvdulvoi"]
+
+[ext_resource type="PackedScene" uid="uid://wfdtlylw5b1i" path="res://Stage scenes/kens_stage_background.tscn" id="1_ia14k"]
+[ext_resource type="PackedScene" uid="uid://diasjjmdti48t" path="res://Stage scenes/kens_stage_backdrop.tscn" id="2_1c6jr"]
+[ext_resource type="Texture2D" uid="uid://dwhc1xqgk5qm2" path="res://Stage items/Kens Stage_platform.png" id="3_xxi2t"]
+[ext_resource type="PackedScene" uid="uid://5atann6ntjgu" path="res://Guile.tscn" id="4_ltfg7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_knnwq"]
+size = Vector2(1150, 33.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ga6qu"]
+size = Vector2(13, 565)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a2b67"]
+size = Vector2(14, 525.5)
+
+[node name="Node2D" type="Node2D"]
+position = Vector2(0, -118)
+
+[node name="KensStageBackground" parent="." instance=ExtResource("1_ia14k")]
+visible = false
+
+[node name="KensStageBackdrop" parent="." instance=ExtResource("2_1c6jr")]
+position = Vector2(417, 376)
+
+[node name="KensStagePlatform" type="Sprite2D" parent="."]
+z_index = -2
+position = Vector2(576.75, 597.75)
+scale = Vector2(1.2839, 1.41765)
+texture = ExtResource("3_xxi2t")
+
+[node name="Platform Stage" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform Stage"]
+position = Vector2(575, 605.75)
+shape = SubResource("RectangleShape2D_knnwq")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(576, 382)
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
+editor_draw_limits = true
+editor_draw_drag_margin = true
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("4_ltfg7")]
+position = Vector2(155, 313)
+scale = Vector2(2, 2)
+
+[node name="Map Boundary" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Map Boundary"]
+position = Vector2(-7.5, 364)
+shape = SubResource("RectangleShape2D_ga6qu")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Map Boundary"]
+position = Vector2(1158, 378)
+shape = SubResource("RectangleShape2D_a2b67")
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+
+[node name="KensStageBackground" parent="ParallaxBackground/ParallaxLayer" instance=ExtResource("1_ia14k")]
+position = Vector2(576, 254)
+scale = Vector2(2, 3.268)

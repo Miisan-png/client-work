@@ -1,0 +1,153 @@
+[gd_scene load_steps=9 format=3 uid="uid://xit3n2jdrx5c"]
+
+[ext_resource type="Texture2D" uid="uid://dhgksymkx1fbl" path="res://Stage items/Kens Stage_background.png" id="1_txup5"]
+[ext_resource type="Script" path="res://startButtons.gd" id="1_y33h6"]
+[ext_resource type="Script" path="res://muliplayer_manager.gd" id="3_a3j8i"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_yh56p"]
+texture = ExtResource("1_txup5")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tpfey"]
+bg_color = Color(0.631576, 0.594409, 0.547069, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_size = 5
+shadow_offset = Vector2(0, 3.41)
+
+[sub_resource type="Animation" id="Animation_1hug1"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:text")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["Waiting For Other Players"]
+}
+
+[sub_resource type="Animation" id="Animation_ql8n1"]
+resource_name = "waiting message"
+length = 1.6
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:text")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.8, 1.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": ["Waiting For Other Players", "Waiting For Other Players.", "Waiting For Other Players..", "Waiting For Other Players..."]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ge647"]
+_data = {
+"RESET": SubResource("Animation_1hug1"),
+"waiting message": SubResource("Animation_ql8n1")
+}
+
+[node name="main_menu" type="Control"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_y33h6")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+offset_left = -609.0
+offset_top = -289.0
+offset_right = 762.0
+offset_bottom = 368.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_yh56p")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -157.0
+offset_top = -78.5
+offset_right = 157.0
+offset_bottom = 78.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 15
+
+[node name="HostGame" type="Button" parent="VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 25
+theme_override_styles/normal = SubResource("StyleBoxFlat_tpfey")
+text = "Host Game"
+
+[node name="JoinAsPlayer2" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 25
+theme_override_styles/normal = SubResource("StyleBoxFlat_tpfey")
+text = "Join as player 2"
+
+[node name="Exit" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 25
+theme_override_styles/normal = SubResource("StyleBoxFlat_tpfey")
+text = "Exit"
+script = ExtResource("3_a3j8i")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="CanvasLayer/ColorRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -96.5
+offset_top = -11.5
+offset_right = 96.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 40
+text = "Waiting For Other Players"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/ColorRect/Label"]
+libraries = {
+"": SubResource("AnimationLibrary_ge647")
+}
+
+[connection signal="pressed" from="VBoxContainer/HostGame" to="." method="become_Host"]
+[connection signal="pressed" from="VBoxContainer/JoinAsPlayer2" to="." method="join_as_player_2"]
+[connection signal="pressed" from="VBoxContainer/Exit" to="." method="exit"]

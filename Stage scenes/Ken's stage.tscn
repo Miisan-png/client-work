@@ -1,0 +1,58 @@
+[gd_scene load_steps=8 format=3 uid="uid://jr6txvdulvoi"]
+
+[ext_resource type="PackedScene" uid="uid://wfdtlylw5b1i" path="res://Stage scenes/kens_stage_background.tscn" id="1_ia14k"]
+[ext_resource type="Script" path="res://Stage scripts/game.gd" id="1_uwr8g"]
+[ext_resource type="PackedScene" uid="uid://diasjjmdti48t" path="res://Stage scenes/kens_stage_backdrop.tscn" id="2_1c6jr"]
+[ext_resource type="Texture2D" uid="uid://dwhc1xqgk5qm2" path="res://Stage items/Kens Stage_platform.png" id="3_xxi2t"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_knnwq"]
+size = Vector2(1150, 33.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ga6qu"]
+size = Vector2(13, 565)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a2b67"]
+size = Vector2(14, 525.5)
+
+[node name="Node2D" type="Node2D"]
+position = Vector2(0, -118)
+script = ExtResource("1_uwr8g")
+
+[node name="KensStageBackdrop" parent="." instance=ExtResource("2_1c6jr")]
+position = Vector2(418, 380)
+
+[node name="KensStagePlatform" type="Sprite2D" parent="."]
+position = Vector2(576.75, 597.75)
+scale = Vector2(1.2839, 1.41765)
+texture = ExtResource("3_xxi2t")
+
+[node name="Platform Stage" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform Stage"]
+position = Vector2(575, 605.75)
+shape = SubResource("RectangleShape2D_knnwq")
+
+[node name="Map Boundary" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Map Boundary"]
+position = Vector2(-7.5, 364)
+shape = SubResource("RectangleShape2D_ga6qu")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Map Boundary"]
+position = Vector2(1158, 378)
+shape = SubResource("RectangleShape2D_a2b67")
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+scroll_base_scale = Vector2(0.5, 0.5)
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+
+[node name="KensStageBackground" parent="ParallaxBackground/ParallaxLayer" instance=ExtResource("1_ia14k")]
+position = Vector2(571, 232)
+scale = Vector2(1.49873, 2.60541)
+
+[node name="Player1Position" type="Marker2D" parent="."]
+position = Vector2(300, 500)
+
+[node name="Player2Position" type="Marker2D" parent="."]
+position = Vector2(800, 500)

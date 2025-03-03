@@ -1,0 +1,38 @@
+[gd_scene load_steps=6 format=3 uid="uid://bowp6rpidog13"]
+
+[ext_resource type="Texture2D" uid="uid://to83ou1i30gw" path="res://Stage items/M1/Kens Stage_M1_anim.png" id="1_8rsjj"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dybhe"]
+atlas = ExtResource("1_8rsjj")
+region = Rect2(4, 133, 55, 66)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3cvib"]
+atlas = ExtResource("1_8rsjj")
+region = Rect2(4, 67, 55, 66)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5668l"]
+atlas = ExtResource("1_8rsjj")
+region = Rect2(4, 1, 55, 66)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_kuoby"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dybhe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3cvib")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5668l")
+}],
+"loop": true,
+"name": &"cheer2",
+"speed": 5.0
+}]
+
+[node name="KensStageM1" type="AnimatedSprite2D"]
+position = Vector2(-113.943, 43.6891)
+sprite_frames = SubResource("SpriteFrames_kuoby")
+animation = &"cheer2"
+frame = 1

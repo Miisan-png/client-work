@@ -1,0 +1,638 @@
+[gd_scene load_steps=81 format=3 uid="uid://dino7novtqdxe"]
+
+[ext_resource type="Script" path="res://Character/Dhalsim/dhalsim.gd" id="1_05bhy"]
+[ext_resource type="Texture2D" uid="uid://bubrgoiqymskk" path="res://Character/Dhalsim/Dhalsim_Crouch.png" id="1_uymfs"]
+[ext_resource type="Texture2D" uid="uid://whp5vfeo4pc8" path="res://Character/Dhalsim/Dhalsim_anim.png" id="2_4f6h6"]
+[ext_resource type="Texture2D" uid="uid://dbti2pn6x8tga" path="res://Character/Dhalsim/Dhalsim_Jump.png" id="3_ld12k"]
+[ext_resource type="Texture2D" uid="uid://dkv7q7fecyhy5" path="res://Character/Dhalsim/Dhalsim_Walkback.png" id="4_t3wdp"]
+[ext_resource type="Texture2D" uid="uid://bvrkfb1u8xclg" path="res://Character/Dhalsim/Dhalsim_Walkfor.png" id="5_70a6p"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sftjy"]
+size = Vector2(64, 83)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ocj5e"]
+atlas = ExtResource("1_uymfs")
+region = Rect2(0, 0, 98, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c00mm"]
+atlas = ExtResource("1_uymfs")
+region = Rect2(98, 0, 98, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tubvo"]
+atlas = ExtResource("1_uymfs")
+region = Rect2(196, 0, 98, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_65ai8"]
+atlas = ExtResource("2_4f6h6")
+region = Rect2(0, 0, 101, 119)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xylro"]
+atlas = ExtResource("2_4f6h6")
+region = Rect2(101, 0, 101, 119)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n4w5r"]
+atlas = ExtResource("2_4f6h6")
+region = Rect2(202, 0, 101, 119)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p11b2"]
+atlas = ExtResource("2_4f6h6")
+region = Rect2(303, 0, 101, 119)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p8243"]
+atlas = ExtResource("2_4f6h6")
+region = Rect2(404, 0, 101, 119)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_72yw3"]
+atlas = ExtResource("2_4f6h6")
+region = Rect2(505, 0, 101, 119)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pig3r"]
+atlas = ExtResource("3_ld12k")
+region = Rect2(0, 0, 95, 169)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pig4f"]
+atlas = ExtResource("3_ld12k")
+region = Rect2(95, 0, 95, 169)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m7qqu"]
+atlas = ExtResource("3_ld12k")
+region = Rect2(190, 0, 95, 169)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bd7jd"]
+atlas = ExtResource("3_ld12k")
+region = Rect2(285, 0, 95, 169)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a4gyh"]
+atlas = ExtResource("3_ld12k")
+region = Rect2(380, 0, 95, 169)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k5k26"]
+atlas = ExtResource("4_t3wdp")
+region = Rect2(0, 0, 119, 127)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jk8et"]
+atlas = ExtResource("4_t3wdp")
+region = Rect2(119, 0, 119, 127)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iej7k"]
+atlas = ExtResource("4_t3wdp")
+region = Rect2(238, 0, 119, 127)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i0owj"]
+atlas = ExtResource("4_t3wdp")
+region = Rect2(357, 0, 119, 127)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_li7uh"]
+atlas = ExtResource("4_t3wdp")
+region = Rect2(476, 0, 119, 127)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qsqdq"]
+atlas = ExtResource("4_t3wdp")
+region = Rect2(595, 0, 119, 127)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_whq4u"]
+atlas = ExtResource("4_t3wdp")
+region = Rect2(0, 127, 119, 127)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_88ju6"]
+atlas = ExtResource("4_t3wdp")
+region = Rect2(119, 127, 119, 127)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_un64u"]
+atlas = ExtResource("4_t3wdp")
+region = Rect2(238, 127, 119, 127)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f7t8p"]
+atlas = ExtResource("4_t3wdp")
+region = Rect2(357, 127, 119, 127)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wkgie"]
+atlas = ExtResource("4_t3wdp")
+region = Rect2(476, 127, 119, 127)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k30bv"]
+atlas = ExtResource("4_t3wdp")
+region = Rect2(595, 127, 119, 127)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pdm43"]
+atlas = ExtResource("5_70a6p")
+region = Rect2(0, 0, 118, 124)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_odoq5"]
+atlas = ExtResource("5_70a6p")
+region = Rect2(118, 0, 118, 124)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_prb03"]
+atlas = ExtResource("5_70a6p")
+region = Rect2(236, 0, 118, 124)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7anck"]
+atlas = ExtResource("5_70a6p")
+region = Rect2(354, 0, 118, 124)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8qmi5"]
+atlas = ExtResource("5_70a6p")
+region = Rect2(472, 0, 118, 124)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a4o18"]
+atlas = ExtResource("5_70a6p")
+region = Rect2(590, 0, 118, 124)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y2yci"]
+atlas = ExtResource("5_70a6p")
+region = Rect2(0, 124, 118, 124)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q84gy"]
+atlas = ExtResource("5_70a6p")
+region = Rect2(118, 124, 118, 124)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4kaqh"]
+atlas = ExtResource("5_70a6p")
+region = Rect2(236, 124, 118, 124)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4pisb"]
+atlas = ExtResource("5_70a6p")
+region = Rect2(354, 124, 118, 124)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0eehe"]
+atlas = ExtResource("5_70a6p")
+region = Rect2(472, 124, 118, 124)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1v8fh"]
+atlas = ExtResource("5_70a6p")
+region = Rect2(590, 124, 118, 124)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_q7oaa"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ocj5e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c00mm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tubvo")
+}],
+"loop": true,
+"name": &"Crouch",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_65ai8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xylro")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n4w5r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p11b2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p8243")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_72yw3")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pig3r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pig4f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m7qqu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bd7jd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a4gyh")
+}],
+"loop": true,
+"name": &"Jump",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k5k26")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jk8et")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iej7k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i0owj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_li7uh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qsqdq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_whq4u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_88ju6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_un64u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f7t8p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wkgie")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k30bv")
+}],
+"loop": true,
+"name": &"Walk_back",
+"speed": 7.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pdm43")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_odoq5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_prb03")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7anck")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8qmi5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a4o18")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y2yci")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q84gy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4kaqh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4pisb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0eehe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1v8fh")
+}],
+"loop": true,
+"name": &"Walk_for",
+"speed": 8.0
+}]
+
+[sub_resource type="Animation" id="Animation_hm105"]
+resource_name = "Crouch"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"Crouch"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:frame")
+tracks/1/interp = 0
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 1, 0]
+}
+
+[sub_resource type="Animation" id="Animation_0lhoi"]
+resource_name = "Idle"
+length = 0.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"Idle"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5]
+}
+
+[sub_resource type="Animation" id="Animation_6xwgr"]
+resource_name = "Jump"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"Jump"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 3, 2, 1, 0]
+}
+
+[sub_resource type="Animation" id="Animation_y16bd"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-12, -1)]
+}
+
+[sub_resource type="Animation" id="Animation_attyl"]
+resource_name = "Walk_Back"
+length = 1.2
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"Walk_back"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(6, 0), Vector2(15, 0), Vector2(-4, 0), Vector2(3, 0), Vector2(1, 0), Vector2(3, 0), Vector2(3, 0), Vector2(3, 0), Vector2(-18, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_ct44s"]
+resource_name = "Walk_For"
+length = 1.2
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"Walk_for"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ighlq"]
+_data = {
+"Crouch": SubResource("Animation_hm105"),
+"Idle": SubResource("Animation_0lhoi"),
+"Jump": SubResource("Animation_6xwgr"),
+"RESET": SubResource("Animation_y16bd"),
+"Walk_Back": SubResource("Animation_attyl"),
+"Walk_For": SubResource("Animation_ct44s")
+}
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_0ekgr"]
+animation = &"Crouch"
+
+[sub_resource type="AnimationNodeTimeScale" id="AnimationNodeTimeScale_48ml4"]
+
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_so0rg"]
+nodes/Animation/node = SubResource("AnimationNodeAnimation_0ekgr")
+nodes/Animation/position = Vector2(100, 80)
+nodes/TimeScale/node = SubResource("AnimationNodeTimeScale_48ml4")
+nodes/TimeScale/position = Vector2(260, 60)
+nodes/output/position = Vector2(500, 140)
+node_connections = [&"TimeScale", 0, &"Animation", &"output", 0, &"TimeScale"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_1xkum"]
+animation = &"Idle"
+
+[sub_resource type="AnimationNodeTimeScale" id="AnimationNodeTimeScale_oitfs"]
+
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_s2roe"]
+nodes/Animation/node = SubResource("AnimationNodeAnimation_1xkum")
+nodes/Animation/position = Vector2(160, 160)
+nodes/TimeScale/node = SubResource("AnimationNodeTimeScale_oitfs")
+nodes/TimeScale/position = Vector2(320, 120)
+nodes/output/position = Vector2(640, 140)
+node_connections = [&"TimeScale", 0, &"Animation", &"output", 0, &"TimeScale"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_evx6l"]
+animation = &"Jump"
+
+[sub_resource type="AnimationNodeTimeScale" id="AnimationNodeTimeScale_w8246"]
+
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_fxoed"]
+nodes/Animation/node = SubResource("AnimationNodeAnimation_evx6l")
+nodes/Animation/position = Vector2(40, 100)
+nodes/TimeScale/node = SubResource("AnimationNodeTimeScale_w8246")
+nodes/TimeScale/position = Vector2(260, 80)
+nodes/output/position = Vector2(580, 140)
+node_connections = [&"TimeScale", 0, &"Animation", &"output", 0, &"TimeScale"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_rrvni"]
+animation = &"Walk_Back"
+
+[sub_resource type="AnimationNodeTimeScale" id="AnimationNodeTimeScale_rw1os"]
+
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_kapwm"]
+nodes/Animation/node = SubResource("AnimationNodeAnimation_rrvni")
+nodes/Animation/position = Vector2(40, 100)
+nodes/TimeScale/node = SubResource("AnimationNodeTimeScale_rw1os")
+nodes/TimeScale/position = Vector2(240, 80)
+nodes/output/position = Vector2(480, 140)
+node_connections = [&"TimeScale", 0, &"Animation", &"output", 0, &"TimeScale"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_b8kjj"]
+animation = &"Walk_For"
+
+[sub_resource type="AnimationNodeTimeScale" id="AnimationNodeTimeScale_trgbd"]
+
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_tapbx"]
+nodes/Animation/node = SubResource("AnimationNodeAnimation_b8kjj")
+nodes/Animation/position = Vector2(120, 80)
+nodes/TimeScale/node = SubResource("AnimationNodeTimeScale_trgbd")
+nodes/TimeScale/position = Vector2(340, 100)
+nodes/output/position = Vector2(600, 140)
+node_connections = [&"TimeScale", 0, &"Animation", &"output", 0, &"TimeScale"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_d8x7h"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_i37vi"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ouk2q"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_87dtk"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_v68uk"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_10u2s"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_vahss"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_fymg1"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ema74"]
+switch_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_416am"]
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_otjpk"]
+states/Crouch/node = SubResource("AnimationNodeBlendTree_so0rg")
+states/Crouch/position = Vector2(794, 260)
+states/Idle/node = SubResource("AnimationNodeBlendTree_s2roe")
+states/Idle/position = Vector2(644, 48)
+states/Jump/node = SubResource("AnimationNodeBlendTree_fxoed")
+states/Jump/position = Vector2(362, 72)
+states/Start/position = Vector2(122, 253)
+states/Walk_Back/node = SubResource("AnimationNodeBlendTree_kapwm")
+states/Walk_Back/position = Vector2(606, 358)
+states/Walk_For/node = SubResource("AnimationNodeBlendTree_tapbx")
+states/Walk_For/position = Vector2(342, 300)
+transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_d8x7h"), "Jump", "Idle", SubResource("AnimationNodeStateMachineTransition_i37vi"), "Idle", "Jump", SubResource("AnimationNodeStateMachineTransition_ouk2q"), "Idle", "Walk_For", SubResource("AnimationNodeStateMachineTransition_87dtk"), "Walk_For", "Idle", SubResource("AnimationNodeStateMachineTransition_v68uk"), "Walk_For", "Walk_Back", SubResource("AnimationNodeStateMachineTransition_10u2s"), "Walk_Back", "Walk_For", SubResource("AnimationNodeStateMachineTransition_vahss"), "Crouch", "Jump", SubResource("AnimationNodeStateMachineTransition_fymg1"), "Crouch", "Idle", SubResource("AnimationNodeStateMachineTransition_ema74"), "Idle", "Crouch", SubResource("AnimationNodeStateMachineTransition_416am")]
+graph_offset = Vector2(0, 188.322)
+
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_kiq5y"]
+properties/0/path = NodePath(".:position")
+properties/0/spawn = true
+properties/0/replication_mode = 1
+properties/1/path = NodePath(".:velocity_synchronizer")
+properties/1/spawn = true
+properties/1/replication_mode = 1
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+script = ExtResource("1_05bhy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-11, -3)
+shape = SubResource("RectangleShape2D_sftjy")
+
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-12, -1)
+sprite_frames = SubResource("SpriteFrames_q7oaa")
+animation = &"Idle"
+frame = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_ighlq")
+}
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+tree_root = SubResource("AnimationNodeStateMachine_otjpk")
+anim_player = NodePath("../AnimationPlayer")
+parameters/Crouch/TimeScale/scale = 1.0
+parameters/Idle/TimeScale/scale = 1.0
+parameters/Jump/TimeScale/scale = 1.0
+parameters/Walk_Back/TimeScale/scale = 1.0
+parameters/Walk_For/TimeScale/scale = 1.0
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
+replication_config = SubResource("SceneReplicationConfig_kiq5y")
