@@ -20,6 +20,7 @@ config/icon="res://icon.svg"
 CharacterSelectManager="*res://Stage Select Scene/CharacterSelectManager.gd"
 MultiplayerManager="*res://AutoLoads/MultiplayerManager.gd"
 SignalBus="*res://AutoLoads/SignalBus.gd"
+SecurityManager="*res://AutoLoads/SecurityManager.gd"
 
 [display]
 
